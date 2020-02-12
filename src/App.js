@@ -1,11 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 // ./ 의 의미는 같은 디렉토리에 있다는 뜻이다.
 // function Food(props.fav)는 function Food ({fav})를 쓴 것과 동일하다.
 // map takes array and returns array way the what we want
-function Food({ name, image }) {
+
+function Food({ name, image, rating }) {
   return (
     <div>
-      <h3> I love {name}</h3>
+      <h2> I love {name}</h2>
+      <h4>{rating}/5.0</h4>
       <img src={image} alt={name} />
     </div>
   );
@@ -16,37 +20,55 @@ const foodLove = [
     id: 1,
     name: "Kimchi",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FeTucCw1w6Ak%2Fmaxresdefault.jpg&f=1&nofb=1"
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FeTucCw1w6Ak%2Fmaxresdefault.jpg&f=1&nofb=1",
+    rating: 4.3
   },
   {
     id: 2,
     name: "Bibimbap",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F6QQ67F8y2b8%2Fmaxresdefault.jpg&f=1&nofb=1"
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F6QQ67F8y2b8%2Fmaxresdefault.jpg&f=1&nofb=1",
+    rating: 5.0
   },
   {
     id: 3,
     name: "Doncasu",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffoodingbox.com%2Fweb%2Fproduct%2Fbig%2F201706%2F18_shop1_970227.jpg&f=1&nofb=1"
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffoodingbox.com%2Fweb%2Fproduct%2Fbig%2F201706%2F18_shop1_970227.jpg&f=1&nofb=1",
+    rating: 4.9
   },
   {
     id: 4,
     name: "Kimbap",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2FeTucCw1w6Ak%2Fmaxresdefault.jpg&f=1&nofb=1"
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F5%2F56%2FVegetable_gimbap.jpg%2F1200px-Vegetable_gimbap.jpg&f=1&nofb=1",
+    rating: 4.7
   },
   {
     id: 5,
     name: "Samkiopsal",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99663B335A22340228&f=1&nofb=1"
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99663B335A22340228&f=1&nofb=1",
+    rating: 5.0
   }
 ];
 
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  rating: PropTypes.number
+};
+
 function renderFood(dish) {
   //console.log(dish);
-  return <Food key={dish.id} name={dish.name} image={dish.image} />;
+  return (
+    <Food
+      key={dish.id}
+      name={dish.name}
+      image={dish.image}
+      rating={dish.rating}
+    />
+  );
 }
 
 function App() {
