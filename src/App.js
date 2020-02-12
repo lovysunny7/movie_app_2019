@@ -11,9 +11,26 @@ import PropTypes from "prop-types";
  왜 function App 도 있는데, class App extends React.Component를 사용해야 하는가?
  그것은 바로 state 라는 기능을 사용할 수 있기 때문이다.
  state는 component의 data가 변하게 할 수 있다.
-
  */
+
 class App extends React.Component {
+  constructor(props) {
+    // Mount 될 때(처음에 화면에 표시될 때), constructor() => render() => componentDidMount() 순서대로 불러온다.
+    super(props);
+    console.log("hello, cons!");
+  }
+  componentDidMount() {
+    console.log("I did render, already");
+  }
+  // Update 될 때 render()=> componentDidUpdate() 가 이뤄진다.
+  componentDidUpdate() {
+    console.log("I did update, bro!");
+  }
+  // Unmount 는 component가 떠날 때 호출된다. 다른 페이지로 이동할 때 등...
+  componentWillUnmount() {
+    console.log("Me, catch ME!");
+  }
+
   state = {
     count: 0
   };
@@ -31,6 +48,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("render");
     return (
       <div>
         <h1>The number is {this.state.count}. </h1>
