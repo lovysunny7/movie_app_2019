@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 // ./ 의 의미는 같은 디렉토리에 있다는 뜻이다.
 // function Food(props.fav)는 function Food ({fav})를 쓴 것과 동일하다.
@@ -14,48 +15,26 @@ import PropTypes from "prop-types";
  */
 
 class App extends React.Component {
-  constructor(props) {
-    // Mount 될 때(처음에 화면에 표시될 때), constructor() => render() => componentDidMount() 순서대로 불러온다.
-    super(props);
-    console.log("hello, cons!");
-  }
-  componentDidMount() {
-    console.log("I did render, already");
-  }
-  // Update 될 때 render()=> componentDidUpdate() 가 이뤄진다.
-  componentDidUpdate() {
-    console.log("I did update, bro!");
-  }
-  // Unmount 는 component가 떠날 때 호출된다. 다른 페이지로 이동할 때 등...
-  componentWillUnmount() {
-    console.log("Me, catch ME!");
-  }
-
   state = {
-    count: 0
+    isLoading: true,
+    movies: []
   };
-  // 아래는 자바 스크립트 코드
-  add = () => {
-    // console.log("add");
-    // this.state.count = 1; 이렇게 하게 되면 render을 다시 하지 않기 때문에 setState를 사용해야한다.
-    // 사실 이와 같은 방법은 좋은 방법으로 추천되진 않는다.
-    // this.setState({ count: this.state.count + 1 })
-    // this.setState(current=>({count:current.count+1})) 라고 바꿀 수도 있다.
-    this.setState(current => ({ count: current.count + 1 }));
-  };
-  minus = () => {
-    this.setState(current => ({ count: current.count - 1 }));
-  };
+
+  /* 
+이론적으로 우리는 componentDidMount에서 data를 fetch하는 것이다.
+=> api로부터 data fetching이 완료 => render
+  */
+
+  componentDidMount() {
+    // setTimeout은 JS 꺼
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 3000);
+  }
 
   render() {
-    console.log("render");
-    return (
-      <div>
-        <h1>The number is {this.state.count}. </h1>
-        <button onClick={this.add}>Add</button>
-        <button onClick={this.minus}>Monus</button>
-      </div>
-    );
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading..." : "We are ready"}</div>;
   }
 }
 
