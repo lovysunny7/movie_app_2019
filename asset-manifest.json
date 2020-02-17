@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/lovysunny/movie_app_2019/static/css/main.1ef746cc.chunk.css",
+    "main.js": "/lovysunny/movie_app_2019/static/js/main.239d00a3.chunk.js",
+    "main.js.map": "/lovysunny/movie_app_2019/static/js/main.239d00a3.chunk.js.map",
+    "runtime-main.js": "/lovysunny/movie_app_2019/static/js/runtime-main.dc7b97b3.js",
+    "runtime-main.js.map": "/lovysunny/movie_app_2019/static/js/runtime-main.dc7b97b3.js.map",
+    "static/js/2.e746f176.chunk.js": "/lovysunny/movie_app_2019/static/js/2.e746f176.chunk.js",
+    "static/js/2.e746f176.chunk.js.map": "/lovysunny/movie_app_2019/static/js/2.e746f176.chunk.js.map",
+    "index.html": "/lovysunny/movie_app_2019/index.html",
+    "precache-manifest.f69896aba03ac123550d05e0115ed014.js": "/lovysunny/movie_app_2019/precache-manifest.f69896aba03ac123550d05e0115ed014.js",
+    "service-worker.js": "/lovysunny/movie_app_2019/service-worker.js",
+    "static/css/main.1ef746cc.chunk.css.map": "/lovysunny/movie_app_2019/static/css/main.1ef746cc.chunk.css.map",
+    "static/js/2.e746f176.chunk.js.LICENSE.txt": "/lovysunny/movie_app_2019/static/js/2.e746f176.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dc7b97b3.js",
+    "static/js/2.e746f176.chunk.js",
+    "static/css/main.1ef746cc.chunk.css",
+    "static/js/main.239d00a3.chunk.js"
+  ]
+}
